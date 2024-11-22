@@ -9,25 +9,22 @@ import {
   TouchableHighlight,
 } from "react-native";
 
-import firebase from "../../config";
-const db = firebase.database();
-
-export default function MyProfile() {
-  const [nom, setNom] = useState("");
-  const [prenom, setPrenom] = useState("");
-  const [telephone, setTelephone] = useState("");
+export default function MyAccount() {
+  const [nom, setNom] = useState();
+  const [prenom, setPrenom] = useState();
+  const [telephone, setTelephone] = useState();
 
   return (
     <ImageBackground
-      source={require("../../assets/me2.jpg")}
+      source={require("../assets/img0.jpeg")}
       style={styles.container}
     >
       <StatusBar style="light" />
       <Text style={styles.textstyle}>My Account</Text>
 
       <Image
-      source={require("../../assets/me.jpg")}
-      style={{
+        source={require("../assets/agent.webp")}
+        style={{
           height: 200,
           width: 200,
         }}
@@ -65,23 +62,13 @@ export default function MyProfile() {
       <TouchableHighlight
         activeOpacity={0.5}
         underlayColor="#DDDDDD"
-       
-       
-
-        onPress={() => {
-            const ref_listprofiles = db.ref("list_profiles/");
-            ref_listprofiles.push({
-              nom: nom,
-              prenom: prenom,
-              telephone: telephone,
-            });
-       
-        }}
         style={{
           marginBottom: 10,
           borderColor: "#00f",
           borderWidth: 2,
           backgroundColor: "#08f6",
+          textstyle: "italic",
+          fontSize: 24,
           height: 60,
           width: "50%",
           justifyContent: "center",

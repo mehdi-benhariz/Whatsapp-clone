@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Auth from "./screens/Auth";
 import Home from "./screens/Home";
 import NewUser from "./screens/NewUser";
+import MyProfile from "./screens/home/MyProfile";
+import Chat from "./screens/Chat";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +27,18 @@ export default function App() {
           component={NewUser}
           options={{ headerShown: true }}
         />
+        <Stack.Screen
+          name="MyProfile"
+          component={MyProfile}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{ headerShown: true }}
+        />
+        
+
       </Stack.Navigator>
     </NavigationContainer>
   );

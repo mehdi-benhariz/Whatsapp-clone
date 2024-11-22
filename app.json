@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "WhatsAppClone",
     "slug": "WhatsAppClone",
     "version": "1.0.0",

@@ -2,11 +2,27 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const tabs =  createMaterialBottomTabNavigator()
+import { Button } from 'react-native'
+import firebase from '../config'
+import MyProfile from './home/MyProfile'
+import ListProfiles from './home/ListProfiles'
+
+const handleLogout = () => {
+  firebase.auth().signOut()
+}
+const Tab =  createMaterialBottomTabNavigator();
 export default function Home() {
-  return (
-    <View>
-      <Text>home</Text>
-    </View>
+
+
+        return (
+          
+            <Tab.Navigator>
+              {/* <Tab.Screen name="Home" component={Home} ></Tab.Screen> */}
+              <Tab.Screen name="My" component={MyProfile} ></Tab.Screen>
+              <Tab.Screen name="ListProfiles" component={ListProfiles} ></Tab.Screen>
+
+              
+            </Tab.Navigator>
+      
   )
 }

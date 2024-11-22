@@ -1,8 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { Pressable, ImageBackground, StyleSheet, Text, TextInput, View } from "react-native";
+import firebase from "../config";
+
+const auth = firebase.auth();
 
 export default function Auth(props:any) {
-    var email:string ,password:string;
+    var email="user@gmail.com" ,password:string ="testtest";
   return (
     <ImageBackground 
       source={require("../assets/me.jpg")}
@@ -35,8 +38,22 @@ export default function Auth(props:any) {
 
           <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={() => {
-                                props.navigation.replace("Home")
-                            }}>
+              console.log(email , password)
+              // props.navigation.replace("Home");
+
+                                auth.signInWithEmailAndPassword(email, password).then(() => {
+                                    // Signed in 
+                                    console.log("Signed in")
+                                      props.navigation.replace("Home");
+                                  
+                                }).catch((error) => {
+
+                                    var errorCode = error.code;
+                                    var errorMessage = error.message;
+                                    console.log(errorMessage)
+                                    console.log(errorCode)
+                                } );
+            }}>
               <Text style={styles.buttonText}>Login</Text>
             </Pressable>
             <Pressable style={[styles.button, styles.secondaryButton]} onPress={() => {
