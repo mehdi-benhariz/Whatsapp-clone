@@ -10,7 +10,7 @@ import "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDAHFyhY2odv-pVe8GGMZt4wjwrOIt-i1s",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "drive-node-302220.firebaseapp.com",
   databaseURL: "https://drive-node-302220-default-rtdb.firebaseio.com",
   projectId: "drive-node-302220",
